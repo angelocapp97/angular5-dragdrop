@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'draggable';
+  boxes = ['box 1', 'box 2'];
+
+  addBox() {
+    this.boxes.push(`box ${this.boxes.length + 1}`);
+  }
 }
