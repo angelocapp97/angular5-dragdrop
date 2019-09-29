@@ -1,15 +1,28 @@
 .box {
-    background-color: #BADA55;
-    border: 1px solid black;
-    padding: 10px 20px;
-    display: inline-block;
+  background-color: #bada55;
+  border: 1px solid black;
+  padding: 10px 20px;
+  display: inline-block;
 }
 
 .box.dragging {
-    background-color: coral;
+  background-color: coral;
+}
+
+.box.sortable.dragging {
+  background: none;
+  border: 1px dashed black;
+  color: transparent;
 }
 
 .area {
-    background: #C0FFFE;
-    padding: 40px;
+  background: #c0fffe;
+  padding: 40px;
+}
+
+ul {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
 }

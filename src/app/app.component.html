@@ -1,30 +1,54 @@
 <h1>Draggable</h1>
 
-<h2>Part 1 - draggable directive</h2>
+<section>
+    <h2>Part 1 - draggable directive</h2>
 
-<div class="box" appDraggable
-  (dragStart)="onDragStart($event)"
-  (dragMove)="onDragMove($event)"
-  (dragEnd)="onDragEnd($event)">
-  My box
-</div>
+    <div class="box" appDraggable (dragStart)="onDragStart($event)" (dragMove)="onDragMove($event)"
+      (dragEnd)="onDragEnd($event)">
+      My box
+    </div>
 
-<h2>Part 2 - movable directive</h2>
+    <h2>Part 2 - movable directive</h2>
 
-<div class="box" appMovable>
-  My box 1
-</div>
+    <div class="box" appMovable>
+      My box 1
+    </div>
 
-<div class="box" appMovable>
-  My box 2
-</div>
+    <div class="box" appMovable>
+      My box 2
+    </div>
 
-<h2>Part 3 - movable area</h2>
+    <h2>Part 3 - movable area</h2>
 
-<div class="area" appMovableArea>
-  <div class="box" appMovable *ngFor="let box of boxes">
-    {{ box }}
-  </div>
-</div>
+    <div class="area" appMovableArea>
+      <div class="box" appMovable *ngFor="let box of boxes">
+        {{ box }}
+      </div>
+    </div>
 
-<button (click)="addBox()">Add</button>
+    <button (click)="addBox()">Add</button>
+
+    <h2>Part 4 - the draggable helper</h2>
+
+    <div style="overflow: hidden">
+      <div class="box" appDraggable>
+        Drag me!
+
+        <div class="box helper" *appDraggableHelper>
+          Dragging...
+        </div>
+      </div>
+    </div>
+</section>
+
+<section>
+  <h2>Part 5 - tha sortable list</h2>
+
+  <ul appSortableList (sort)="onSortList($event)">
+    <li *ngFor="let box of boxes" class="box" appSortable>
+      {{ box }}
+
+      <div class="box" *appDraggableHelper>{{ box }}</div>
+    </li>
+  </ul>
+</section>

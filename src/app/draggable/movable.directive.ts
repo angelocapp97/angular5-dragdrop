@@ -25,10 +25,10 @@ export class MovableDirective extends DraggableDirective {
   @Input('appMovableReset') reset = false;
 
   constructor(private sanitizer: DomSanitizer, public element: ElementRef) {
-    super();
+    super(element);
   }
-  
-  @HostListener('dragStart', ['$event']) 
+
+  @HostListener('dragStart', ['$event'])
   onDragStart(event: PointerEvent) {
     this.startPosition = {
       x: event.clientX - this.position.x,
@@ -36,13 +36,13 @@ export class MovableDirective extends DraggableDirective {
     };
   }
 
-  @HostListener('dragMove', ['$event']) 
+  @HostListener('dragMove', ['$event'])
   onDragMove(event: PointerEvent) {
     this.position.x = event.clientX - this.startPosition.x;
     this.position.y = event.clientY - this.startPosition.y;
   }
 
-  @HostListener('dragEnd', ['$event']) 
+  @HostListener('dragEnd', ['$event'])
   onDragEnd(event: PointerEvent) {
     if (this.reset) {
       this.position = {x: 0, y: 0};
